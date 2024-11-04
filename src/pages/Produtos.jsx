@@ -6,14 +6,14 @@ const Produtos = () => {
     const [produtos, setProdutos] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState('');
-    const [searchTerm, setSearchTerm] = useState(''); 
+    const [searchTerm, setSearchTerm] = useState('');
     const navigate = useNavigate();
 
     useEffect(() => {
         const fetchProdutos = async () => {
             try {
                 const response = await api.get('/produtos');
-                setProdutos(response.data.slice(0, 6)); 
+                setProdutos(response.data);
                 setLoading(false);
             } catch (err) {
                 console.error('Erro ao buscar produtos:', err);
@@ -36,7 +36,7 @@ const Produtos = () => {
             const response = await api.get('/produtos', {
                 params: { search: searchTerm },
             });
-            setProdutos(response.data.slice(0, 6)); 
+            setProdutos(response.data.slice(0, 6));
             setLoading(false);
         } catch (err) {
             console.error('Erro ao buscar produtos:', err);
@@ -56,22 +56,6 @@ const Produtos = () => {
     return (
         <div className="max-w-4xl mx-auto p-4">
             <h1 className="text-3xl font-bold mb-6 text-center">Produtos</h1>
-
-            <form onSubmit={handleSearch} className="mb-6 flex justify-center">
-                <input
-                    type="text"
-                    value={searchTerm}
-                    onChange={(e) => setSearchTerm(e.target.value)}
-                    placeholder="Buscar produtos..."
-                    className="w-2/3 px-4 py-2 border rounded-l-md focus:outline-none"
-                />
-                <button
-                    type="submit"
-                    className="px-4 py-2 bg-blue-500 text-white rounded-r-md hover:bg-blue-600 transition-colors"
-                >
-                    Buscar
-                </button>
-            </form>
 
             <div className="flex justify-end mb-4">
                 <button

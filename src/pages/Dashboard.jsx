@@ -19,22 +19,23 @@ const Dashboard = () => {
     return (
         <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100">
             <h1 className="text-4xl font-bold mb-8">Dashboard</h1>
-            <div className="flex flex-col gap-4">
+            <div className='w-9/12 flex justify-center gap-8'>
+
                 <button
                     onClick={handleProdutos}
-                    className="bg-blue-500 text-white px-6 py-3 rounded hover:bg-blue-600 transition-colors"
+                    className="bg-zinc-200 w-6/12 py-8 text-xl border shadow text-black px-6  rounded hover:bg-zinc-400 transition-colors uppercase"
                 >
                     Produtos
                 </button>
                 <button
                     onClick={handleVendas}
-                    className="bg-green-500 text-white px-6 py-3 rounded hover:bg-green-600 transition-colors"
+                    className="bg-zinc-200 w-6/12 py-8 text-xl border text-black px-6  rounded hover:bg-zinc-400 transition-colors uppercase"
                 >
                     Vendas
                 </button>
                 <button
                     onClick={handleFinanceiro}
-                    className="bg-red-500 text-white px-6 py-3 rounded hover:bg-red-600 transition-colors"
+                    className="bg-zinc-200 text-black w-6/12 py-8 text-xl border px-6 rounded hover:bg-zinc-400 transition-colors uppercase"
                 >
                     Financeiro
                 </button>

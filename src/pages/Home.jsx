@@ -1,18 +1,18 @@
 import React, { useEffect, useState, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import api from '../services/api';
-import { AuthContext } from '../contexts/AuthContext'; 
+import { AuthContext } from '../contexts/AuthContext';
 
 const Home = () => {
     const [produtos, setProdutos] = useState([]);
     const navigate = useNavigate();
-    const { isLoggedIn, logout } = useContext(AuthContext); 
+    const { isLoggedIn, logout } = useContext(AuthContext);
 
     useEffect(() => {
         const fetchProdutos = async () => {
             try {
                 const response = await api.get('/produtos');
-                
+
                 setProdutos(response.data.slice(0, 6));
             } catch (error) {
                 console.error('Erro ao buscar produtos:', error);
@@ -41,7 +41,8 @@ const Home = () => {
                         <p className='font-semibold text-white'>O que você está procurando?</p>
                         <img className='h-7' src="/icon/lupa.png" alt="Lupa" />
                     </div>
-                    <div className='flex items-center'>
+                    <div className='flex items-center gap-6'>
+                        <img className='w-12' src="/icon/cart.svg" alt="" />
                         {isLoggedIn ? (
                             <button
                                 onClick={handleLogout}
