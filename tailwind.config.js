@@ -5,7 +5,11 @@ export default {
     "./src/**/*.{js,jsx,ts,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      backgroundImage: {
+        'camisa': "url('./public/img/logo.png')",
+      }
+    },
   },
   plugins: [],
 }
